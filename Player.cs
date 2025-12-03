@@ -7,29 +7,17 @@ public enum PlayerNumber
     Player2
 }
 
-public class Player 
+public class Player(string name, PlayerNumber playerNum)
 {
-    public string Name { get; private set; }
-    public int Health { get; private set; }
-    public int Stamina { get; private set; }
-    public PlayerNumber PlayerNum { get; private set; }
+    public string Name { get; private set; } = name;
+    public int Health { get; private set; } = Config.STARTING_HEALTH;
+    public int Stamina { get; private set; } = Config.STARTING_STAMINA;
+    public PlayerNumber PlayerNum { get; private set; } = playerNum;
 
-    private ActionType currentAction;
-    private ActionType queuedAction;
-    private int actionFramesRemaining;
-    private List<DamageEvent> recentDamage;
-
-    public Player(string name, PlayerNumber playerNum)
-    {
-        Name = name;
-        PlayerNum = playerNum;
-        Health = Config.STARTING_HEALTH;
-        Stamina = Config.STARTING_STAMINA;
-        currentAction = ActionType.Passive;
-        queuedAction = ActionType.Passive;
-        actionFramesRemaining = 0;
-        recentDamage = new List<DamageEvent>();
-    }
+    private ActionType currentAction = ActionType.Passive;
+    private ActionType queuedAction = ActionType.Passive;
+    private int actionFramesRemaining = 0;
+    private readonly List<DamageEvent> recentDamage = [];
 
     public void SetQueuedAction(ActionType action)
     {
@@ -54,7 +42,6 @@ public class Player
             Stamina = Math.Min(Config.MAX_STAMINA, Stamina + Config.PASSIVE_STAMINA_REGEN);
         }
 
-        // Update current action
         if (actionFramesRemaining > 0)
         {
             actionFramesRemaining--;
@@ -103,7 +90,7 @@ public class Player
     public int CalculateDamage()
     {
         var actionData = ActionDatabase.GetAction(currentAction);
-        Random rand = new Random();
+        Random rand = new();
         return rand.Next(actionData.MinDamage, actionData.MaxDamage + 1);
     }
 
@@ -123,14 +110,8 @@ public class Player
     }
 }
 
-public class DamageEvent
+public class DamageEvent(int damage, int frame)
 {
-    public int Damage { get; set; }
-    public int Frame { get; set; }
-
-    public DamageEvent(int damage, int frame)
-    {
-        Damage = damage;
-        Frame = frame;
-    }
+    public int Damage { get; set; } = damage;
+    public int Frame { get; set; } = frame;
 }

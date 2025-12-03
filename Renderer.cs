@@ -5,7 +5,7 @@ namespace BoxingGame
     {
         private string winner = "";
         private int lastFrameHeight = 0;
-        private StringBuilder frameBuffer;
+        private readonly StringBuilder frameBuffer;
 
         public Renderer()
         {
@@ -13,7 +13,7 @@ namespace BoxingGame
             Console.CursorVisible = false; 
         }
 
-        public void RenderMenu()
+        public static void RenderMenu()
         {
             Console.Clear();
             Console.WriteLine("╔════════════════════════════════════════╗");
@@ -74,7 +74,7 @@ namespace BoxingGame
             frameBuffer.AppendLine($"  Action:  {actionDisplay}");
         }
 
-        private string GetActionDisplay(ActionType action, int framesRemaining)
+        private static string GetActionDisplay(ActionType action, int framesRemaining)
         {
             if (action == ActionType.Passive)
                 return "Passive (Recovering)";
@@ -84,14 +84,14 @@ namespace BoxingGame
             return $"{actionName} {frameBar} ({framesRemaining}f)";
         }
 
-        private string GetFrameBar(int frames)
+        private static string GetFrameBar(int frames)
         {
             const int maxBarLength = 5;
             int filled = Math.Min(frames, maxBarLength);
             return "[" + new string('▓', filled) + new string('░', maxBarLength - filled) + "]";
         }
 
-        private string GetBar(int value, int max, int length)
+        private static string GetBar(int value, int max, int length)
         {
             int filled = (int)(value / (float)max * length);
             filled = Math.Max(0, Math.Min(filled, length)); 
@@ -115,21 +115,21 @@ namespace BoxingGame
             frameBuffer.AppendLine("  └─────────────────────────────┘");
         }
 
-        private string[] GetSpriteLines(ActionType action, bool facingRight)
+        private static string[] GetSpriteLines(ActionType action, bool facingRight)
         {
             return action switch
             {
-                ActionType.Passive => new[] { " O   ", "/|\\  ", "/ \\  " },
+                ActionType.Passive => [" O   ", "/|\\  ", "/ \\  "],
                 ActionType.Jab => facingRight 
-                    ? new[] { " O   ", "/|-- ", "/ \\  " }
-                    : new[] { " O   ", "--|\\ ", "/ \\  " },
+                    ? [" O   ", "/|-- ", "/ \\  "]
+                    : [" O   ", "--|\\ ", "/ \\  "],
                 ActionType.Hook => facingRight 
-                    ? new[] { " O   ", "/|== ", "/ \\  " }
-                    : new[] { " O   ", "==|\\ ", "/ \\  " },
-                ActionType.Dodge => new[]{ "     ", "-O-  ", "/ \\  " },
-                ActionType.Block => new[] { "/O\\  ", " |   ", "/ \\  " },
-                ActionType.Concussion => new[] { " @   ", "/X\\  ", "/ \\  " },
-                _ => new[] { " ?  ", " ?  ", " ?  " }
+                    ? [" O   ", "/|== ", "/ \\  "]
+                    : [" O   ", "==|\\ ", "/ \\  "],
+                ActionType.Dodge => ["     ", "-O-  ", "/ \\  "],
+                ActionType.Block => ["/O\\  ", " |   ", "/ \\  "],
+                ActionType.Concussion => [" @   ", "/X\\  ", "/ \\  "],
+                _ => [" ?  ", " ?  ", " ?  "]
             };
         }
 
@@ -149,7 +149,7 @@ namespace BoxingGame
             winner = winnerName;
         }
 
-        private int CountLines(string text)
+        private static int CountLines(string text)
         {
             if (string.IsNullOrEmpty(text))
                 return 0;

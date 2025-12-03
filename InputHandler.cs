@@ -3,7 +3,7 @@ namespace BoxingGame
 {
     public class InputHandler
     {
-        public void ProcessInput(Player player1, Player player2)
+        public static void ProcessInput(Player player1, Player player2)
         {
             if (Console.KeyAvailable)
             {

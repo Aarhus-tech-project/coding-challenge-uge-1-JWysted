@@ -12,8 +12,8 @@ namespace BoxingGame
         private GameState currentState;
         private Player player1 = null!;
         private Player player2 = null!;
-        private Renderer renderer;
-        private InputHandler inputHandler;
+        private readonly Renderer renderer;
+        private readonly InputHandler inputHandler;
         private int currentFrame = 0;
 
         public Game()
@@ -45,7 +45,7 @@ namespace BoxingGame
         private void ShowMenu()
         {
             Console.Clear();
-            renderer.RenderMenu();
+            Renderer.RenderMenu();
             Console.WriteLine("\nTryk ENTER for at starte spillet");
             Console.WriteLine("ESC for at afslutte");
             
@@ -70,13 +70,12 @@ namespace BoxingGame
 
         private void GameLoop()
         {
-            DateTime lastFrame = DateTime.Now;
 
             while (currentState == GameState.Game)
             {
                 DateTime frameStart = DateTime.Now;
 
-                inputHandler.ProcessInput(player1, player2);
+                InputHandler.ProcessInput(player1, player2);
 
                 UpdateGame();
 
@@ -102,8 +101,6 @@ namespace BoxingGame
 
         private void ResolveCombat()
         {
-            var p1Action = player1.GetCurrentActionType();
-            var p2Action = player2.GetCurrentActionType();
 
             if (player1.IsActionComplete())
             {

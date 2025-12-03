@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\byste\\OneDrive\\Skrivebord\\skoleKode\\H1_C#_NET\\boxing\\nyBoxing\\nyBoxing.csproj",
+      "projectUniqueName": "C:\\Users\\byste\\OneDrive\\Skrivebord\\skoleKode\\fix_git\\nyBoxing.csproj",
       "projectName": "nyBoxing",
-      "projectPath": "C:\\Users\\byste\\OneDrive\\Skrivebord\\skoleKode\\H1_C#_NET\\boxing\\nyBoxing\\nyBoxing.csproj",
+      "projectPath": "C:\\Users\\byste\\OneDrive\\Skrivebord\\skoleKode\\fix_git\\nyBoxing.csproj",
       "packagesPath": "C:\\Users\\byste\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\byste\\OneDrive\\Skrivebord\\skoleKode\\H1_C#_NET\\boxing\\nyBoxing\\obj\\",
+      "outputPath": "C:\\Users\\byste\\OneDrive\\Skrivebord\\skoleKode\\fix_git\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\byste\\AppData\\Roaming\\NuGet\\NuGet.Config"

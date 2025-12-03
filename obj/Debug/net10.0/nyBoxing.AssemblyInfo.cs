@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("nyBoxing")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb34e3fa6f5d982dfa62c84c86062febe74e70b9")]
 [assembly: System.Reflection.AssemblyProductAttribute("nyBoxing")]
 [assembly: System.Reflection.AssemblyTitleAttribute("nyBoxing")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
