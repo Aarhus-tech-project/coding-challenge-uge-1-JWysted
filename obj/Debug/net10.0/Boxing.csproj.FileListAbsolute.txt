@@ -1,0 +1,15 @@
+c:\Users\byste\OneDrive\Skrivebord\skoleKode\fix_git\bin\Debug\net10.0\Boxing.exe
+C:\Users\byste\OneDrive\Skrivebord\skoleKode\fix_git\bin\Debug\net10.0\Boxing.deps.json
+C:\Users\byste\OneDrive\Skrivebord\skoleKode\fix_git\bin\Debug\net10.0\Boxing.runtimeconfig.json
+c:\Users\byste\OneDrive\Skrivebord\skoleKode\fix_git\bin\Debug\net10.0\Boxing.dll
+c:\Users\byste\OneDrive\Skrivebord\skoleKode\fix_git\bin\Debug\net10.0\Boxing.pdb
+c:\Users\byste\OneDrive\Skrivebord\skoleKode\fix_git\obj\Debug\net10.0\Boxing.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\byste\OneDrive\Skrivebord\skoleKode\fix_git\obj\Debug\net10.0\Boxing.AssemblyInfoInputs.cache
+c:\Users\byste\OneDrive\Skrivebord\skoleKode\fix_git\obj\Debug\net10.0\Boxing.AssemblyInfo.cs
+c:\Users\byste\OneDrive\Skrivebord\skoleKode\fix_git\obj\Debug\net10.0\Boxing.csproj.CoreCompileInputs.cache
+c:\Users\byste\OneDrive\Skrivebord\skoleKode\fix_git\obj\Debug\net10.0\Boxing.sourcelink.json
+c:\Users\byste\OneDrive\Skrivebord\skoleKode\fix_git\obj\Debug\net10.0\Boxing.dll
+c:\Users\byste\OneDrive\Skrivebord\skoleKode\fix_git\obj\Debug\net10.0\refint\Boxing.dll
+c:\Users\byste\OneDrive\Skrivebord\skoleKode\fix_git\obj\Debug\net10.0\Boxing.pdb
+C:\Users\byste\OneDrive\Skrivebord\skoleKode\fix_git\obj\Debug\net10.0\Boxing.genruntimeconfig.cache
+C:\Users\byste\OneDrive\Skrivebord\skoleKode\fix_git\obj\Debug\net10.0\ref\Boxing.dll

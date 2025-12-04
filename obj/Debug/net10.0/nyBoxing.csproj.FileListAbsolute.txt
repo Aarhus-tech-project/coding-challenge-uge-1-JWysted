@@ -1,0 +1,14 @@
+C:\Users\byste\OneDrive\Skrivebord\skoleKode\H1_C#_NET\boxing\nyBoxing\obj\Debug\net10.0\nyBoxing.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\byste\OneDrive\Skrivebord\skoleKode\H1_C#_NET\boxing\nyBoxing\obj\Debug\net10.0\nyBoxing.AssemblyInfoInputs.cache
+C:\Users\byste\OneDrive\Skrivebord\skoleKode\H1_C#_NET\boxing\nyBoxing\obj\Debug\net10.0\nyBoxing.AssemblyInfo.cs
+C:\Users\byste\OneDrive\Skrivebord\skoleKode\H1_C#_NET\boxing\nyBoxing\obj\Debug\net10.0\nyBoxing.csproj.CoreCompileInputs.cache
+C:\Users\byste\OneDrive\Skrivebord\skoleKode\H1_C#_NET\boxing\nyBoxing\bin\Debug\net10.0\nyBoxing.exe
+C:\Users\byste\OneDrive\Skrivebord\skoleKode\H1_C#_NET\boxing\nyBoxing\bin\Debug\net10.0\nyBoxing.deps.json
+C:\Users\byste\OneDrive\Skrivebord\skoleKode\H1_C#_NET\boxing\nyBoxing\bin\Debug\net10.0\nyBoxing.runtimeconfig.json
+C:\Users\byste\OneDrive\Skrivebord\skoleKode\H1_C#_NET\boxing\nyBoxing\bin\Debug\net10.0\nyBoxing.dll
+C:\Users\byste\OneDrive\Skrivebord\skoleKode\H1_C#_NET\boxing\nyBoxing\bin\Debug\net10.0\nyBoxing.pdb
+C:\Users\byste\OneDrive\Skrivebord\skoleKode\H1_C#_NET\boxing\nyBoxing\obj\Debug\net10.0\nyBoxing.dll
+C:\Users\byste\OneDrive\Skrivebord\skoleKode\H1_C#_NET\boxing\nyBoxing\obj\Debug\net10.0\refint\nyBoxing.dll
+C:\Users\byste\OneDrive\Skrivebord\skoleKode\H1_C#_NET\boxing\nyBoxing\obj\Debug\net10.0\nyBoxing.pdb
+C:\Users\byste\OneDrive\Skrivebord\skoleKode\H1_C#_NET\boxing\nyBoxing\obj\Debug\net10.0\nyBoxing.genruntimeconfig.cache
+C:\Users\byste\OneDrive\Skrivebord\skoleKode\H1_C#_NET\boxing\nyBoxing\obj\Debug\net10.0\ref\nyBoxing.dll
