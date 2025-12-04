@@ -5,7 +5,10 @@ namespace BoxingGame
         // ═══════════════════════════════════════════════════════════════
         // GAME SETTINGS
         // ═══════════════════════════════════════════════════════════════
-        public const int TARGET_FPS = 30;
+        
+        
+        //works best on higher fps, be aware that balancing is currently tied to framerate
+        public const int TARGET_FPS = 240; 
         public const int FRAME_TIME_MS = 1000 / TARGET_FPS;
 
         // ═══════════════════════════════════════════════════════════════
@@ -13,16 +16,14 @@ namespace BoxingGame
         // ═══════════════════════════════════════════════════════════════
         public const int STARTING_HEALTH = 100;
         public const int STARTING_STAMINA = 100;
-        public const int MAX_HEALTH = 100;
         public const int MAX_STAMINA = 100;
-        public const int PASSIVE_STAMINA_REGEN = 1;
 
         // ═══════════════════════════════════════════════════════════════
         // COMBAT SETTINGS
         // ═══════════════════════════════════════════════════════════════
         // if damage treshhold is reached within the frame window, the players state changes to concussion
         public const int CONCUSSION_DAMAGE_THRESHOLD = 25;  
-        public const int CONCUSSION_FRAME_WINDOW = 20;       
+        public const int CONCUSSION_FRAME_WINDOW = 50;       
         public const double BLOCK_DAMAGE_REDUCTION = 0.5;    
 
         // ═══════════════════════════════════════════════════════════════
@@ -44,67 +45,92 @@ namespace BoxingGame
         // ═══════════════════════════════════════════════════════════════
         // ACTION DATA (Stamina, Frames, Dodge%, MinDmg, MaxDmg)
         // ═══════════════════════════════════════════════════════════════
-        public static class Actions
+ 
+    public static class ActionDatabase
+    {
+        public static readonly ActionData Passive = new(
+            type: ActionType.Passive,
+            staminaCost: -1,
+            frameDuration: 1,
+            dodgeChance: 10,
+            minDamage: 0,
+            maxDamage: 0,
+            ignoresBlock: false
+        );
+
+        public static readonly ActionData Jab = new(
+            type: ActionType.Jab,
+            staminaCost: 20,
+            frameDuration: 10,
+            dodgeChance: 0,
+            minDamage: 5,
+            maxDamage: 20,
+            ignoresBlock: false
+        );
+
+        public static readonly ActionData Hook = new(
+            type: ActionType.Hook,
+            staminaCost: 40,
+            frameDuration: 20,
+            dodgeChance: 0,
+            minDamage: 5,
+            maxDamage: 20,
+            ignoresBlock: true
+        );
+
+        public static readonly ActionData Dodge = new(
+            type: ActionType.Dodge,
+            staminaCost: 10,
+            frameDuration: 20,
+            dodgeChance: 50,
+            minDamage: 0,
+            maxDamage: 0,
+            ignoresBlock: false
+        );
+
+        public static readonly ActionData Block = new(
+            type: ActionType.Block,
+            staminaCost: 10,
+            frameDuration: 20,
+            dodgeChance: 10,
+            minDamage: 0,
+            maxDamage: 0,
+            ignoresBlock: false
+        );
+
+        public static readonly ActionData Concussion = new(
+            type: ActionType.Concussion,
+            staminaCost: 0,
+            frameDuration: 40,
+            dodgeChance: 0,
+            minDamage: 0,
+            maxDamage: 0,
+            ignoresBlock: false
+        );
+
+        private static readonly Dictionary<ActionType, ActionData> _actionsByType = new()
         {
-            public static class Passive
-            {
-                public const int STAMINA_COST = -1;
-                public const int FRAME_DURATION = 1;
-                public const int DODGE_CHANCE = 10;
-                public const int MIN_DAMAGE = 0;
-                public const int MAX_DAMAGE = 0;
-                public const bool IGNORES_BLOCK = false;
-            }
+            { ActionType.Passive, Passive },
+            { ActionType.Jab, Jab },
+            { ActionType.Hook, Hook },
+            { ActionType.Dodge, Dodge },
+            { ActionType.Block, Block },
+            { ActionType.Concussion, Concussion }
+        };
 
-            public static class Jab
-            {
-                public const int STAMINA_COST = 20;
-                public const int FRAME_DURATION = 6;
-                public const int DODGE_CHANCE = 0;
-                public const int MIN_DAMAGE = 5;
-                public const int MAX_DAMAGE = 20;
-                public const bool IGNORES_BLOCK = false;
-            }
+        public static readonly IReadOnlyList<ActionData> All = 
+            [Passive, Jab, Hook, Dodge, Block, Concussion];
+        
 
-            public static class Hook
-            {
-                public const int STAMINA_COST = 40;
-                public const int FRAME_DURATION = 8;
-                public const int DODGE_CHANCE = 0;
-                public const int MIN_DAMAGE = 5;
-                public const int MAX_DAMAGE = 20;
-                public const bool IGNORES_BLOCK = true;
-            }
+        public static ActionData GetAction(ActionType type)
+        {
+            return _actionsByType[type];
+        }
 
-            public static class Dodge
-            {
-                public const int STAMINA_COST = 10;
-                public const int FRAME_DURATION = 6;
-                public const int DODGE_CHANCE = 50;
-                public const int MIN_DAMAGE = 0;
-                public const int MAX_DAMAGE = 0;
-                public const bool IGNORES_BLOCK = false;
-            }
-
-            public static class Block
-            {
-                public const int STAMINA_COST = 10;
-                public const int FRAME_DURATION = 6;
-                public const int DODGE_CHANCE = 10;
-                public const int MIN_DAMAGE = 0;
-                public const int MAX_DAMAGE = 0;
-                public const bool IGNORES_BLOCK = false;
-            }
-
-            public static class Concussion
-            {
-                public const int STAMINA_COST = 0;
-                public const int FRAME_DURATION = 10;
-                public const int DODGE_CHANCE = 0;
-                public const int MIN_DAMAGE = 0;
-                public const int MAX_DAMAGE = 0;
-                public const bool IGNORES_BLOCK = false;
-            }
+        public static bool TryGetAction(ActionType type, out ActionData? action)
+        {
+            return _actionsByType.TryGetValue(type, out action);
         }
     }
+}
 }

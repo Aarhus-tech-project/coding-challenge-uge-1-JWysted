@@ -125,8 +125,8 @@ namespace BoxingGame
                 // Check if defender is dodging
                 if (defenderAction == ActionType.Dodge)
                 {
-                    var defenderActionData = ActionDatabase.GetAction(defenderAction);
-                    Random rand = new Random();
+                    var defenderActionData = Config.ActionDatabase.GetAction(defenderAction);
+                    Random rand = new();
                     if (rand.Next(100) < defenderActionData.DodgeChance) 
                     {
                         return;
@@ -134,7 +134,7 @@ namespace BoxingGame
                 }
 
                 // Check if defender is blocking
-                var attackActionData = ActionDatabase.GetAction(attackAction);
+                var attackActionData = Config.ActionDatabase.GetAction(attackAction);
                 if (defenderAction == ActionType.Block && !attackActionData.IgnoresBlock)
                 {
                     damage = (int)(damage * Config.BLOCK_DAMAGE_REDUCTION); 

@@ -1,4 +1,3 @@
-
 namespace BoxingGame;
 
 public enum PlayerNumber
@@ -39,7 +38,7 @@ public class Player(string name, PlayerNumber playerNum)
 
         if (currentAction == ActionType.Passive)
         {
-            Stamina = Math.Min(Config.MAX_STAMINA, Stamina + Config.PASSIVE_STAMINA_REGEN);
+            Stamina = Math.Min(Config.MAX_STAMINA, Stamina + Math.Abs(Config.ActionDatabase.Passive.StaminaCost));
         }
 
         if (actionFramesRemaining > 0)
@@ -60,7 +59,7 @@ public class Player(string name, PlayerNumber playerNum)
 
     private void TryExecuteAction(ActionType action)
     {
-        var actionData = ActionDatabase.GetAction(action);
+        var actionData = Config.ActionDatabase.GetAction(action);
         
         if (Stamina >= actionData.StaminaCost)
         {
@@ -82,14 +81,14 @@ public class Player(string name, PlayerNumber playerNum)
         if (damageInLast10Frames > Config.CONCUSSION_DAMAGE_THRESHOLD)
         {
             currentAction = ActionType.Concussion;
-            actionFramesRemaining = Config.Actions.Concussion.FRAME_DURATION; 
+            actionFramesRemaining = Config.ActionDatabase.Concussion.FrameDuration; 
             recentDamage.Clear();
         }
     }
 
     public int CalculateDamage()
     {
-        var actionData = ActionDatabase.GetAction(currentAction);
+        var actionData = Config.ActionDatabase.GetAction(currentAction);
         Random rand = new();
         return rand.Next(actionData.MinDamage, actionData.MaxDamage + 1);
     }
