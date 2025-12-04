@@ -117,9 +117,6 @@ namespace BoxingGame
             { ActionType.Block, Block },
             { ActionType.Concussion, Concussion }
         };
-
-        public static readonly IReadOnlyList<ActionData> All = 
-            [Passive, Jab, Hook, Dodge, Block, Concussion];
         
 
         public static ActionData GetAction(ActionType type)
@@ -127,10 +124,6 @@ namespace BoxingGame
             return _actionsByType[type];
         }
 
-        public static bool TryGetAction(ActionType type, out ActionData? action)
-        {
-            return _actionsByType.TryGetValue(type, out action);
-        }
     }
 }
 }
